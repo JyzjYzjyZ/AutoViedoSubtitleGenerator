@@ -1,0 +1,2 @@
+# AutoViedoSubtitleGenerator
+用于自动为视频添加字幕
