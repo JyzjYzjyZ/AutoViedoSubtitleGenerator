@@ -18,11 +18,9 @@ class AudioFlowLineHandling:
         self.model = Wav2Vec2ForCTC.from_pretrained(ModelRelativePath)
         # self.input_type = 'data'# or path
         self.useMono = True
-        print('语音识别模型创建完成')
 
 
     def VoiceRecognition(self,audio_or_path:str or dict):
-        usedToCalculateTheFunctionStartTime = time.time()
         '''
         :param audio_or_path:传入一个音频的地址或numpy.ndarray对象
         :return:返回一个单元素列表 list[str]
@@ -55,8 +53,7 @@ class AudioFlowLineHandling:
         # take argmax and decode
         predicted_ids = torch.argmax(logits, dim=-1)
         res = self.tokenizer.batch_decode(predicted_ids)  # input
-        print('time_voiceRecognition:'+str(time.time()-usedToCalculateTheFunctionStartTime))
-        return res
+        return res[0].lower()
 
 
 
