@@ -23,11 +23,9 @@ def main(SourceRelativePath, ModelRelativePath='./models/pyannote-segmentation/p
   # string==>array
   clipArr = str(res).split(' 0 SPEECH\n')
   clipArr[len(clipArr)-1] = clipArr[len(clipArr)-1].replace(' 0 SPEECH','')
-  clipAudio = ClipAudio(SourceRelativePath, clipArr, sr, mono)
-  ResAudioArr = clipAudio[0]
-  actualChunk = clipAudio[1]
+  actualChunk = ClipAudio(SourceRelativePath, clipArr, sr, mono)
   # print('ResAudioArr\n\n',ResAudioArr, '\n' ,' clipArr\n\n',  clipArr)
-  FinResDict = {'AudioArr':ResAudioArr, 'ClipArr':clipArr,'ActualChunk':actualChunk}
+  FinResDict = {'ClipArr':clipArr,'ActualChunk':actualChunk}
   return FinResDict
 
 
@@ -53,7 +51,6 @@ def ClipAudio(SourceRelativePath, clipArr, sr=16000,mono:bool=True):
     timeClipArr = (str(clip).replace(' ', ''))[1:-1].split('-->')
     start = TimeTransForm(timeClipArr[0])
     stop = TimeTransForm(timeClipArr[1])
-    # audio_part = audio[round(start*sr):round(stop*sr)]
     audio_part = audio[int(start*sr):int(stop*sr)+1]
     actualChunk_part =  [int(start * sr),int(stop * sr) + 1]
     audioClipArrRes.append(audio_part)
@@ -64,7 +61,7 @@ def ClipAudio(SourceRelativePath, clipArr, sr=16000,mono:bool=True):
     index += 1
   pass
   print('sr:'+str(sr))
-  return [audioClipArrRes,actualChunk]
+  return actualChunk
 
 
 
