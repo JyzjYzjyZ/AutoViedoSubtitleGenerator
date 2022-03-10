@@ -2,6 +2,7 @@
 用于自动为视频添加字幕
 ## introduction
 我不想赘述太多，目前正处于测试阶段
+
 调用ASR/STT  huggingface-facebookwave;vosk;sphinx-project-5
 
 必要库见源码，使用方法简单 自行阅读ToASR最后一段
@@ -111,3 +112,4 @@ join me and stargrading amazing sculptors with tivrish twenty twenty to
 
 
 ```
+author:goodjin5
