@@ -1,0 +1,4 @@
+这里是一个你需要的mod的清单
+facebook....pyannote....==>huggingface
+sphinx---github-speech_recognition==>find link
+vosk--vosk[github][google]
