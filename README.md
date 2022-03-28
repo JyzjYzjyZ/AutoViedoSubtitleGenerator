@@ -114,7 +114,7 @@ join me and stargrading amazing sculptors with tivrish twenty twenty to
 ```
 author:goodjin5
 
-现在编译以完成需要管线版本请>goodjin5add0@gmail.com<
+现在编译以完成需要管线版本请>goodjin5add0@gmail.com<  <free!>
 
 ![Image text](https://github.com/JyzjYzjyZ/AutoViedoSubtitleGenerator/blob/main/img/H2iQBHGA2B.png?raw=true)
 
