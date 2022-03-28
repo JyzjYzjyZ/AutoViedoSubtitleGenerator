@@ -113,4 +113,5 @@ join me and stargrading amazing sculptors with tivrish twenty twenty to
 
 ```
 author:goodjin5
-无论如何 因为所以 遇事不决 量子力学；请了解 python为3.9.7 不是3.8.12 【这个版本的python会引起编译错误】
+现在编译以完成需要管线版本请>goodjin5add0@gmail.com<
+19G/30G (zip/unzip) && build , source,project file
