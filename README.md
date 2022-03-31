@@ -11,7 +11,7 @@
 详细运行结果请看
 ```
 [output]
->3种引擎huggingFace_l _xl Vosk 5+组合可选 ；弃用了效果最差的Sphinx
+# 3种引擎huggingFace_l _xl Vosk 5+组合可选 ；弃用了效果最差的Sphinx
 <Vosk>time:65.21595287322998s
 D:\python\envs\e-28-1\python.exe D:/project/@demo/ToASR.py
 LOG (VoskAPI:ReadDataFiles():model.cc:213) Decoding params beam=13 max-active=7000 lattice-beam=6
@@ -30,9 +30,9 @@ LOG (VoskAPI:ReadDataFiles():model.cc:311) Loading CARPA model from D:\setup\mod
 LOG (VoskAPI:ReadDataFiles():model.cc:317) Loading RNNLM model from D:\setup\models\vosk-model-en-us-0.22/rnnlm/final.raw
 LOG (VoskAPI:CompileLooped():nnet-compile-looped.cc:345) Spent 0.00897598 seconds in looped compilation.
 Please enter the path to the audio/video filed
-> 进度条
+# 进度条
 100%|██████████| 9/9 [00:29<00:00,  3.27s/it]
->语音识别结果
+# 语音识别结果
 if you want to sculpt amazing creatures characters props environments but dunno why
 where to start if that is the case then i welcome you to next is complete guide to sievers
 twenty twenty two my name is abraham leo i have eleven years of experience in the industry and i've been teaching for the past seven years i also manage my own studio here
@@ -44,8 +44,8 @@ this means i have the signs of sports for beginner level students will want to s
 join me and start grading amazing sculptures with version twenty
 Using China server backend.
 _try_translate 429 Client Error: Too many requests for url: https://www2.deepl.com/jsonrpc?method=LMT_split_into_sentences
->多线程复合翻译
->https://github.com/JyzjYzjyZ/MultiThreaded_Composite_Translate_100perCentSuccessRate
+# 多线程复合翻译
+# https://github.com/JyzjYzjyZ/MultiThreaded_Composite_Translate_100perCentSuccessRate
 =============================================
 如果你想塑造神奇的生物角色道具环境，但不知道为什么
  从哪里开始如果是这样的话，那么我欢迎你到下一个是完整的西弗斯指南
