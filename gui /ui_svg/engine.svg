@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="86" height="86" viewBox="0 0 200 200" class="button_ui">
+    <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="./Style_uiButton.css" type="text/css"/>
+    <style>
+        .button_ui{
+        width: 86px;
+        height: 86px;
+        filter: drop-shadow(0px 5px 4px #00ff00);
+        }
+    </style>
+    <g id="engine">
+        <path d="M122.78,77.22v45.56H77.22V77.22Zm5-5H72.22v55.56h55.56V72.22Z"/>
+        <path d="M172.32,105V95l-27.79,0V82.78h22.23v-10H144.54V55.56H127.22V33.33h-10V55.56H105V27.78H95V55.56H82.78V33.33h-10V55.56H55.56V72.78h-22v10h22V95L28,95v10l27.56,0v12.23h-22v10h22v17.22H72.78v22.23h10V144.44H95v27.78h10V144.44h12.22v22.23h10V144.44h17.32V127.23h22.22v-10H144.54V105Zm-37.78,29.43h-69V65.56h69Z"/>
+    </g>
+</svg>
