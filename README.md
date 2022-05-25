@@ -10,6 +10,10 @@
 必要库见create/.bat
 代码完善后放出编译版本，当前可通过menu.spec快速编译
 
-![Image text](https://github.com/JyzjYzjyZ/AutoViedoSubtitleGenerator/blob/main/img/H2iQBHGA2B.png?raw=true)
+![Image Early testing](https://github.com/JyzjYzjyZ/AutoViedoSubtitleGenerator/blob/main/img/H2iQBHGA2B.png?raw=true)
+![Image ui]([https://github.com/JyzjYzjyZ/AutoViedoSubtitleGenerator/blob/main/img/H2iQBHGA2B.png?raw=true](https://raw.githubusercontent.com/JyzjYzjyZ/AutoViedoSubtitleGenerator/main/img/Snipaste_2022-05-25_15-02-36.webp))
+### 大多数的字幕质量类似于
+![Image prewiew]([https://github.com/JyzjYzjyZ/AutoViedoSubtitleGenerator/blob/main/img/H2iQBHGA2B.png?raw=true](https://raw.githubusercontent.com/JyzjYzjyZ/AutoViedoSubtitleGenerator/main/img/Snipaste_2022-05-25_15-03-23.webp))
+
 
 19G/30G (zip/unzip) && build , source,project file
