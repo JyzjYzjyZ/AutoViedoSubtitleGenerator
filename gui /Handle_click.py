@@ -20,14 +20,14 @@ class Thread(QThread):
 
 class HandleClickStart():
 
-    refrenceLen = 20
+    refrenceLen =30
     standard = '，'
-    addRule = "。"
+    addRule = ['。',',','.']
     def __init__(self):
         self.asr = ASR()
 
-    def make_sentence_short(self,sentences, chunk, sr, refrenceLen,standard,addRule):
-        def encode(sentences: list, max_len=40, Non_IdentifySentences
+    def make_sentence_short(self, sentences, chunk, sr):  # , refrenceLen,standard,addRule
+        def encode(sentences: list, max_len=self.refrenceLen, Non_IdentifySentences
         =True):
             '''
             根据句子长度重新分配
@@ -35,13 +35,14 @@ class HandleClickStart():
             :param max_len: The maximum length after encoding is generally much less than this value
             :return:[sentence1+sentence2,sentence3+sentence4+sentence5,...]
             '''
-            while '' in sentences:
-                sentences.remove('')
 
-            if len(sentences) == 1:
-                if Non_IdentifySentences:
-                    return sentences, [1]
-                return sentences
+            # while '' in sentences:
+            #     sentences.remove('')
+
+            # if len(sentences) == 1:
+            #     if Non_IdentifySentences:
+            #         return sentences, [1]
+            #     return sentences
 
             def _getListLen(l):
                 le = 0
@@ -95,15 +96,23 @@ class HandleClickStart():
                     )
                 return return_result, weighting_l
             return result
-        def Distribution_len(chunk, sentences,addRule, standard,max=80):
+
+        def Distribution_len(chunk, sentences, addRule, standard, max=self.refrenceLen):
             '''重新计算时间长度'''
             index = -1
             ch = []
             se = []
             for sentence in sentences:
                 index += 1
-                repl_sen = sentence.replace(addRule, standard)
-                l, weight = encode(repl_sen.split(standard),
+                repl_sen = copy.copy(sentence)
+                for rep in addRule:
+                    # 支持数组分割
+                    repl_sen = repl_sen.replace(rep, standard)
+                # 去掉开头和结尾的符号
+                repl_sen = repl_sen[1:] if repl_sen[0] == standard else repl_sen
+                repl_sen = repl_sen[0:-1] if repl_sen[-1] == standard else repl_sen
+                # repl_sen = sentence.replace(addRule, standard)# 为分割做准备
+                l, weight = encode(repl_sen.split(standard),  # 在这里，由于一个句子的分割必定损失一个标点，所以weight的计算是看分句的数量。与哪个标点被替换无关
                                    max, True)
                 t = chunk[index]
                 sentence_len = len(sentence)
@@ -123,14 +132,17 @@ class HandleClickStart():
                 ch += con_chunk
                 se += l
             return ch, se
+
         def chunkToTimeline(chunk, sr):
             '''
             区块到时间线
             还需处理为srt标准'''
+
             def chunkToTimelineSingle(second: float):
                 def addZero(x):
-                    if len(str(x)) == 0:raise Exception('calc timeline error')
-                    return '0'+str(x) if len(str(x))==1 else str(x)
+                    if len(str(x)) == 0: raise Exception('calc timeline error')
+                    return '0' + str(x) if len(str(x)) == 1 else str(x)
+
                 hour = int(second / 3600)
                 minute = int((second - hour * 3600) / 60)
                 second = (second - hour * 3600 - minute * 60)
@@ -154,15 +166,19 @@ class HandleClickStart():
                     [float(c[0]), float(c[-1])]
                 )
             return timeLine, intChunk
+
         def changeTimeline(timeLine):
             '''处理为srt标准'''
             r = []
             for c in timeLine:
                 r.append(c[0] + ' -->  ' + c[-1])
             return r
-        chunk_short, sentences_short = Distribution_len(chunk, sentences, self.addRule, self.standard,self.refrenceLen)
+
+        chunk_short, sentences_short = Distribution_len(chunk, sentences, self.addRule, self.standard, self.refrenceLen)
         timeLine, int_chunk = chunkToTimeline(chunk_short, sr)
         return sentences_short, chunk_short, int_chunk, changeTimeline(timeLine)
+
+
 
     def responseFilename(self,Filename,signal_res:pyqtSignal=None,write=True):
         # 做一些处理和计算
@@ -174,7 +190,7 @@ class HandleClickStart():
         sentences_short, chunk_short, int_chunk, timeLine = self.make_sentence_short(
             sentences=s_zh, chunk=asr.actualChunk_timeline,
             sr=asr.audio_origin_sr,
-            refrenceLen=self.refrenceLen,standard=self.standard,addRule=self.addRule
+            # refrenceLen=self.refrenceLen,standard=self.standard,addRule=self.addRule
         )
         # mix
         mix_list_zh = asr.Mix_timeLineToSentences(timeLine,sentences_short)
