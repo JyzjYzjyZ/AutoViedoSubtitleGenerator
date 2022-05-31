@@ -143,7 +143,8 @@ class ASR():
     # t = ['145 --> 61', '454 --> 56', '84 --> 645465', '4834 --> 15EEEE61', '545 --> 1615', '465 --> 45EEEE641']
     # s = ['sdada', 'sdada', 'sdadwa', '', 'wefa', '']
 
-    def _Remove_timeLineAndSentencesBySen(self):
+
+    def Remove_timeLineAndSentencesBySen(self):
         remv = []
         _t = copy.copy(self.timeLine)
         _s = copy.copy(self.result)
@@ -158,7 +159,7 @@ class ASR():
         '''方便的调用方法'''
         self.sent_path(path)
         for c in tqdm(self, total=len(self.timeLine)):pass
-        t,s  = self._Remove_timeLineAndSentencesBySen()
+        t,s  = self.Remove_timeLineAndSentencesBySen()
         return self,t,s
 
 if __name__=='__main__':
